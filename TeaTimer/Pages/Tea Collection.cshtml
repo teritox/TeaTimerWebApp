@@ -1,0 +1,28 @@
+﻿@page
+@model TeaTimer.Pages.Tea_CollectionModel
+@{
+    ViewData["Title"] = "Tea Collection";
+}
+
+    <div class="text-center">
+
+        <h1 class="outlined largeTitle titleMargin">Tea Collection</h1>
+
+        @if (Model.teaList.Count > 0)
+        {
+            @foreach (var tea in Model.teaList)
+            {
+                <p class="mediumFont">
+                    @tea.Name, @tea.Sort . @(tea.Temperature)&#176; grader @tea.BrewTime
+                    <a class="greenBrew" asp-page="/Tea Timer" asp-route-TeaId="@tea.id"> Set Timer </a> <a class="redDelete" href="?DeleteId=@tea.id&Temperature=@tea.Temperature"> X</a>
+                </p>
+            }
+        }
+        else
+        {
+            <p class="mediumFont italic">Your collection is empty.<br /> Click button below to add a new tea to your collection!</p>
+        }
+
+        <a asp-page="/AddNewTea" class="btn btn-primary mediumFont topButtonMargin">Lägg till nytt te</a>
+    </div>
+

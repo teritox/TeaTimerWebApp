@@ -1,0 +1,22 @@
+﻿@page
+@model TeaTimer.Pages.AddNewTeaModel
+@*@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration*@
+@{
+    ViewData["Title"] = "New Tea";
+}
+
+<div class="text-center outlined">
+
+    <h1>Fill form to add your tea to your collection</h1><br /><br />
+    <form method="post">
+        <input type="text" name="Name" placeholder="Name" /><br /><br />
+        <input type="text" name="Type" placeholder="Type of tea" /><br /><br />
+        <input type="number" name="Temperature" value="80" /><br /><br />
+        <input type="time" name="Time" value="00:00" /><br /><br />
+
+        <input class="breathingRoom" type="submit" value="Add" />
+
+    </form>
+
+</div>

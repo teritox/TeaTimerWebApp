@@ -1,0 +1,43 @@
+﻿@page
+@model TeaTimer.Pages.Tea_TimerModel
+@{
+}
+
+<audio id="audio" src="~/sounds/bell-ring-01.mp3" preload="auto"></audio>
+
+<div class="container">
+
+    <div class="text-center">
+        <h1 class="outlined titleMargin">Tea Timer</h1>
+    </div>
+
+
+    <div class="text-center vertical-center timerFont outlined" style="margin-top: 100px">
+
+        @if (Model.TeaTime != null)
+        {
+            <p>@Model.TeaTime.Name, @Model.TeaTime.Sort</p>
+            <p>bryggs i @Model.TeaTime.Temperature&#176; grader</p>
+
+            <p class="largeTitle" id="timer" style="margin-top: 30px; margin-bottom: 50px">@Model.TeaTime.BrewTime</p>
+        }
+        else
+        {
+            <p>Pick a tea from your<br />collection!</p>
+
+            <p clasS="largeTitle" style="margin-top: 50px; margin-bottom: 50px">00:00</p>
+        }
+
+
+        <button class="btn btn-success" onclick="StartCountDown()">Start</button>
+        <button class="btn btn-danger" onclick="StopCountDown()">Stop</button><br />
+        <button class="btn btn-dark" onclick="ResetCountDown()">Reset</button><br />
+
+    </div>
+
+    <div class="text-center" style="margin-top: 70px">
+        <a asp-page="/Tea Collection" class="btn btn-primary">Tea Collection</a>
+
+    </div>
+</div>
+
